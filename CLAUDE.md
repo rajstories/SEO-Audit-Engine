@@ -6,3 +6,4 @@
 - All outputs go to outputs/ folder.
 - After each working step, remind me to commit.
 - report.json must match report.schema.json exactly.
+- Always validate title length before accepting LLM output
