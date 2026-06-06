@@ -43,7 +43,22 @@ def get_indexable_html(df):
 # Run all deterministic detector checks and optionally stream progress.
 def detect_all(df, progress=None):
     """Run every deterministic rulebook detector. Returns list of issue dicts."""
+    df = df.rename(columns=lambda x: x.strip())
+
+    required_cols = {
+        'Content Type', 'Status Code', 'Indexability', 'Title 1',
+        'Meta Description 1', 'H1-1', 'Title 1 Pixel Width',
+        'Title 1 Length', 'Redirect URL', 'Address', 'Inlinks',
+        'Meta Description 1 Length', 'Word Count', 'Response Time'
+    }
+    missing = required_cols - set(df.columns)
+    if missing:
+        print(f"Error: Missing required columns: {missing}")
+        print(f"Available columns: {list(df.columns)}")
+        return []
+
     html = df[_str(df, 'Content Type').str.contains('text/html', case=False, na=False)]
+
     html_200 = html[_num(html, 'Status Code') == 200]
     idx = get_indexable_html(df)
     issues = []
@@ -112,16 +127,18 @@ def detect_all(df, progress=None):
 
 # Return a string series for a column, defaulting safely when it is missing.
 def _str(df, column):
-    if column not in df:
+    col = column.strip()
+    if col not in df:
         return pd.Series('', index=df.index, dtype='string')
-    return df[column].fillna('').astype(str)
+    return df[col].fillna('').astype(str)
 
 
 # Return a numeric series for a column, defaulting safely when it is missing.
 def _num(df, column):
-    if column not in df:
+    col = column.strip()
+    if col not in df:
         return pd.Series(0, index=df.index, dtype='float64')
-    return pd.to_numeric(df[column], errors='coerce').fillna(0)
+    return pd.to_numeric(df[col], errors='coerce').fillna(0)
 
 
 # Add one detector issue and stream its completed count.
