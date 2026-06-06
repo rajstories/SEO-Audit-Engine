@@ -13,20 +13,23 @@ from collections import defaultdict
 
 import pandas as pd
 
-from agents.detector import detect_all
+from agents.detector import DETECTOR_CHECKS, detect_all
 
 
+# Load internal_all.csv rows from a Screaming Frog export folder.
 def load_rows(export_dir: str) -> list[dict]:
     path = os.path.join(export_dir, "internal_all.csv")
     with open(path, encoding="utf-8-sig", newline="") as f:
         return list(csv.DictReader(f))
 
 
-def detect(rows: list[dict]) -> list[dict]:
+# Run detector checks over crawl rows and optionally stream progress.
+def detect(rows: list[dict], progress=None) -> list[dict]:
     """Return issue dicts: {type, severity, affected_urls, count, explanation}."""
-    return detect_all(pd.DataFrame(rows))
+    return detect_all(pd.DataFrame(rows), progress=progress)
 
 
+# Summarize issue types by severity.
 def summarize(issues: list[dict]) -> dict:
     by_sev = defaultdict(int)
     for i in issues:
