@@ -19,3 +19,17 @@
 **Prompt Summary:** (Run via Claude Code CLI using gemma4:31b-cloud) "Run python3 run.py ../sample-export --no-dashboard and explain the logic inside detector.py."
 **Purpose:** To run the final end-to-end pipeline test, populate .claude/audit.jsonl via system hooks, and prep for the 30-second judge code-reading demo.
 **Iteration:** Took a couple of tries. audit.jsonl wasn't writing because settings.json hook schema was invalid (missing "type" field). Fixed schema, re-launched, logs captured correctly.
+
+
+## Prompt 5 - Missing image alt detector
+"Add missing_image_alt detector for image rows with empty alt attribute. Severity: Medium."
+Result: Worked first try. 279 affected URLs found on sample export. Now 18/18 detectors.
+
+## Prompt 6 - Health score gauge fix
+"Calculate score in server.py: 100 - (high*10 + med*5 + low*2). Broadcast via SSE.
+Update gauge color: red <40, amber 40-70, green >70."
+Result: Dashboard now shows 40/100 with amber gauge for nmgtechnologies.com.
+
+## Prompt 7 - Dynamic fixer fallback chain
+"Fallback order: missing_title → duplicate_title → title_too_long. Min 5 fixes always."
+Result: Fixer now always has URLs to process regardless of which issue type exists.
