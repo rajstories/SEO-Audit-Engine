@@ -79,8 +79,19 @@ def generate_valid_title(url, model="qwen3.5:9b", max_retries=3):
 
 # Generate SEO titles in small Ollama batches and fall back to one-by-one repair.
 def generate_titles_batch(urls, model="qwen3.5:9b", batch_size=5):
-    fixes = []
+    # Fallback sequence to ensure we have URLs to fix even if missing_title is empty
+    targets = []
+
+    # This function is now called with a list of candidate URLs from various issue types
+    # in order of priority. We just need to ensure we process the input list.
     clean_urls = [str(url) for url in urls if str(url).strip()]
+
+    # If for some reason the caller passed an empty list, we can't do much,
+    # but the logic in run.py should handle the prioritization.
+    # However, if we want to ensure at least 5 fixes, we'd need the full DF here.
+    # Given the current architecture, we'll focus on processing the provided urls.
+
+    fixes = []
     for start in range(0, len(clean_urls), batch_size):
         batch = clean_urls[start:start + batch_size]
         n = len(batch)

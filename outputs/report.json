@@ -755,7 +755,108 @@
     }
   ],
   "fixes": {
-    "titles": [],
+    "titles": [
+      {
+        "url": "https://nmgtechnologies.com/",
+        "old": "",
+        "new": "Nmgtechnologies.Com"
+      },
+      {
+        "url": "https://nmgtechnologies.com/industry/fintech",
+        "old": "",
+        "new": "Fintech Overview"
+      },
+      {
+        "url": "https://nmgtechnologies.com/industry/travel",
+        "old": "",
+        "new": "Travel Overview"
+      },
+      {
+        "url": "https://nmgtechnologies.com/industry/marketresearch",
+        "old": "",
+        "new": "Marketresearch"
+      },
+      {
+        "url": "https://nmgtechnologies.com/industry/healthcare",
+        "old": "",
+        "new": "Healthcare Overview"
+      },
+      {
+        "url": "https://nmgtechnologies.com/industry/staffing",
+        "old": "",
+        "new": "Staffing Overview"
+      },
+      {
+        "url": "https://nmgtechnologies.com/success-stories",
+        "old": "",
+        "new": "Success Stories"
+      },
+      {
+        "url": "https://nmgtechnologies.com/success-stories/competiscan",
+        "old": "",
+        "new": "Competiscan"
+      },
+      {
+        "url": "https://nmgtechnologies.com/clients/case-studies/",
+        "old": "",
+        "new": "Case Studies"
+      },
+      {
+        "url": "https://nmgtechnologies.com/success-stories/compound-banc",
+        "old": "",
+        "new": "Compound Banc"
+      },
+      {
+        "url": "https://nmgtechnologies.com/success-stories/international-insurance",
+        "old": "",
+        "new": "International Insurance"
+      },
+      {
+        "url": "https://nmgtechnologies.com/success-stories/wealth-concert",
+        "old": "",
+        "new": "Wealth Concert"
+      },
+      {
+        "url": "https://nmgtechnologies.com/solution/portals/",
+        "old": "",
+        "new": "Portals Overview"
+      },
+      {
+        "url": "https://nmgtechnologies.com/company/about-us",
+        "old": "",
+        "new": "About Us Overview"
+      },
+      {
+        "url": "https://nmgtechnologies.com/resources/library/",
+        "old": "",
+        "new": "Library Overview"
+      },
+      {
+        "url": "https://nmgtechnologies.com/blog/nmg-technologies-to-participate-in-mobile-word-capital-barcelona-the-worlds-largest-and-most-influential-connectivity-event",
+        "old": "",
+        "new": "Nmg Technologies To Participate In Mobile Word Capital Ba..."
+      },
+      {
+        "url": "https://nmgtechnologies.com/solution/fintech/",
+        "old": "",
+        "new": "Fintech Overview"
+      },
+      {
+        "url": "https://nmgtechnologies.com/ai-driven-enterprise-software-development",
+        "old": "",
+        "new": "Ai Driven Enterprise Software Development"
+      },
+      {
+        "url": "https://nmgtechnologies.com/solution/artificial-intelligence/",
+        "old": "",
+        "new": "Artificial Intelligence"
+      },
+      {
+        "url": "https://nmgtechnologies.com/solution/cloud-apps/",
+        "old": "",
+        "new": "Cloud Apps Overview"
+      }
+    ],
     "redirect_map": [
       {
         "from": "https://nmgtechnologies.com/hs-fs/hubfs/edtech.png.png?width=101&height=100&name=edtech.png.png",
@@ -798,7 +899,7 @@
   ],
   "run_meta": {
     "model": "qwen3.5:9b",
-    "model_calls": 2,
-    "duration_sec": 0.2
+    "model_calls": 22,
+    "duration_sec": 1816.6
   }
 }

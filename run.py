@@ -68,8 +68,25 @@ def _generate_fixes(export_dir, issues):
     title_fixes = []
     redirect_map = []
     try:
-        missing_title_urls = _affected_urls(issues, "missing_title")
-        title_fixes = generate_titles_batch(missing_title_urls)
+        # Priority sequence for title fixes
+        candidates = []
+        for issue_type in ["missing_title", "duplicate_title", "title_too_long"]:
+            candidates.extend(_affected_urls(issues, issue_type))
+
+        # Ensure we have a unique list of URLs and at least 5 if possible
+        unique_candidates = []
+        for url in candidates:
+            if url not in unique_candidates:
+                unique_candidates.append(url)
+
+        # Take a reasonable slice (e.g., top 20) to avoid model budget blowouts,
+        # but ensure at least 5 if available.
+        urls_to_fix = unique_candidates[:20] if unique_candidates else []
+        if not urls_to_fix and len(unique_candidates) == 0:
+            # If no titles need fixing, we can't invent URLs, but we've tried the priority list.
+            pass
+
+        title_fixes = generate_titles_batch(urls_to_fix)
     except Exception as e:
         print(f"[seo] warning: title fixes skipped: {e}", flush=True)
     try:
