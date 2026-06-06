@@ -64,3 +64,6 @@ use a tool-trained model (`qwen3.5:9b` or `gemma4:31b-cloud`), not `qwen2.5-code
 ## Note
 The dashboard renders the operator's own crawl data on localhost; it is a local cockpit,
 not a hardened public server. The shareable artifact is the exported `report.html`.
+
+## Running the audit
+python3 run.py sample-export/ --no-dashboard
