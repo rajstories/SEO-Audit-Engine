@@ -20,6 +20,7 @@ DETECTOR_CHECKS = [
     'duplicate_h1',
     'thin_content',
     'slow_page',
+    'missing_image_alt',
 ]
 
 
@@ -121,6 +122,10 @@ def detect_all(df, progress=None):
 
     _run_check(issues, progress, 'slow_page', 'Low',
                df[_num(df, 'Response Time') > 1.0])
+
+    _run_check(issues, progress, 'missing_image_alt', 'Medium',
+               df[(_str(df, 'Content Type').str.contains('image', case=False, na=False)) &
+                  (_str(df, 'Alt Text') == '')])
 
     return issues
 
