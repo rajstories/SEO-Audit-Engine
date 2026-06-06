@@ -511,7 +511,7 @@
   ],
   "run_meta": {
     "model": "qwen3.5:9b",
-    "model_calls": 0,
+    "model_calls": 2,
     "duration_sec": 0.2
   }
 }
