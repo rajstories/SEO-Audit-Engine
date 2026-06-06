@@ -90,10 +90,15 @@ def seo_detect() -> dict:
     issues = detector.detect(RUN.get("rows", []), progress=_on_detector_progress)
     RUN["issues"] = issues
     RUN["summary"] = detector.summarize(issues)
+
+    score = _score(RUN["summary"])
+    RUN["health_score"] = score
+
     for i in issues:
         _emit("issue", i)
     _emit("summary", RUN["summary"])
-    return {"detected": len(issues), "summary": RUN["summary"]}
+    _emit("score", {"score": score})
+    return {"detected": len(issues), "summary": RUN["summary"], "score": score}
 
 
 # Build the report object that is persisted to report.json.
@@ -157,7 +162,7 @@ def _h(value):
 # Calculate a simple audit score from severity counts.
 def _score(summary):
     sev = (summary or {}).get("by_severity", {})
-    penalty = sev.get("High", 0) * 12 + sev.get("Medium", 0) * 6 + sev.get("Low", 0) * 2
+    penalty = sev.get("High", 0) * 10 + sev.get("Medium", 0) * 5 + sev.get("Low", 0) * 2
     return max(0, min(100, 100 - penalty))
 
 
