@@ -116,6 +116,10 @@ def main():
     server.seo_report()
     server.seo_export()
 
+    if not args.no_dashboard:
+        print(f"\n[seo] Dashboard is live. Keeping process alive for 60s for final snapshot...")
+        time.sleep(60)
+
     s = server.RUN["summary"]
     print("\n=== SEO AUDIT RESULT ===")
     print(f"Site         : {server.RUN['site']}  ({server.RUN['urls']} URLs)")
