@@ -1,188 +1,106 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SEO Audit — nmgtechnologies.com</title>
-<script src="https://cdn.tailwindcss.com"></script></head>
-<body class="bg-slate-50 text-slate-900">
-<main class="mx-auto max-w-6xl px-6 py-8">
-  <header class="mb-8 flex flex-col justify-between gap-4 border-b border-slate-200 pb-6 md:flex-row md:items-end">
-    <div>
-      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">SEO Command Center</p>
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-950">SEO Audit Report</h1>
-      <p class="mt-2 text-slate-600">nmgtechnologies.com</p>
-    </div>
-    <div class="text-sm text-slate-500">Audit date<br><span class="font-semibold text-slate-900">June 06, 2026</span></div>
-  </header>
+<title>SEO Audit - NMG Technologies</title><style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f6f7f9; color: #172033; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { max-width: 1120px; margin: 0 auto; padding: 32px 24px; }
+    header { display: flex; justify-content: space-between; gap: 24px; align-items: flex-end; border-bottom: 1px solid #d9dee8; padding-bottom: 24px; margin-bottom: 28px; }
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: 34px; line-height: 1.1; letter-spacing: 0; }
+    h2 { font-size: 22px; margin-bottom: 12px; }
+    h3 { font-size: 16px; margin-bottom: 8px; }
+    .eyebrow { color: #657085; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 8px; }
+    .muted { color: #657085; }
+    .section { background: #fff; border: 1px solid #dfe4ec; border-radius: 8px; padding: 22px; margin-bottom: 22px; box-shadow: 0 1px 2px rgba(20, 31, 48, .04); }
+    .summary-grid { display: grid; grid-template-columns: 220px 1fr; gap: 22px; align-items: stretch; }
+    .score-circle { width: 178px; height: 178px; border-radius: 999px; display: grid; place-items: center; border: 14px solid; background: #fff; margin: 0 auto; }
+    .score-circle strong { display: block; font-size: 44px; line-height: 1; }
+    .score-circle span { color: #657085; font-size: 14px; }
+    .green { border-color: #16a34a; color: #166534; }
+    .amber { border-color: #f59e0b; color: #92400e; }
+    .red { border-color: #ef4444; color: #991b1b; }
+    .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+    .metric { background: #f7f9fc; border: 1px solid #e5e9f1; border-radius: 8px; padding: 14px; }
+    .metric b { display: block; font-size: 28px; margin-top: 4px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card { border: 1px solid #dfe4ec; border-radius: 8px; padding: 16px; background: #fff; }
+    .badge { display: inline-block; border-radius: 999px; padding: 4px 9px; font-size: 12px; font-weight: 800; margin-bottom: 10px; }
+    .sev-high { background: #fee2e2; color: #991b1b; }
+    .sev-medium { background: #fef3c7; color: #92400e; }
+    .sev-low { background: #eef2f7; color: #475569; }
+    .priority-list { padding-left: 20px; margin: 10px 0 0; }
+    .priority-list li { margin: 8px 0; }
+    table { border-collapse: collapse; width: 100%; font-size: 13px; }
+    th { text-align: left; background: #eef2f7; color: #475569; text-transform: uppercase; letter-spacing: .06em; font-size: 11px; }
+    th, td { border-bottom: 1px solid #e6eaf1; padding: 10px 12px; vertical-align: top; }
+    td.url { max-width: 360px; overflow-wrap: anywhere; color: #334155; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .callout { background: #f7f9fc; border: 1px solid #e5e9f1; border-radius: 8px; padding: 14px; }
+    footer { color: #657085; border-top: 1px solid #d9dee8; padding-top: 18px; font-size: 13px; }
+    @media (max-width: 760px) { main { padding: 20px 14px; } header, .summary-grid, .cards, .metric-grid, .split { display: block; } .score-circle { margin-bottom: 18px; } .card, .metric { margin-bottom: 12px; } }
+    @page { margin: 18mm; }
+    </style></head>
+<body><main>
+  <header><div><p class="eyebrow">SEO Command Center</p><h1>SEO Audit Report</h1><p class="muted" style="margin-top:8px">NMG Technologies</p></div>
+  <div class="muted">Audit date<br><strong style="color:#172033">June 07, 2026</strong></div></header>
 
-  <section class="mb-8 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-    <div class="mb-4">
-      <h2 class="text-xl font-bold text-slate-950">Executive Summary</h2>
-      <p class="mt-1 text-sm text-slate-500">A concise view of crawl coverage, issue volume, and overall SEO health.</p>
-    </div>
-    <div class="grid gap-4 md:grid-cols-3">
-      <div class="rounded-lg bg-slate-50 p-5">
-        <p class="text-sm font-medium text-slate-500">Total URLs</p>
-        <p class="mt-2 text-4xl font-bold text-slate-950">456</p>
-      </div>
-      <div class="rounded-lg bg-slate-50 p-5">
-        <p class="text-sm font-medium text-slate-500">Total Issues</p>
-        <p class="mt-2 text-4xl font-bold text-slate-950">13</p>
-        <p class="mt-2 text-sm text-slate-500">High 2 · Medium 6 · Low 5</p>
-      </div>
-      <div class="rounded-lg bg-slate-50 p-5">
-        <p class="text-sm font-medium text-slate-500">SEO Health Score</p>
-        <p class="mt-2 text-4xl font-bold text-slate-950">40<span class="text-lg text-slate-500">/100</span></p>
-      </div>
-    </div>
+  <section class="section"><h2>Executive Summary</h2>
+    <div class="summary-grid"><div class="score-circle red"><div><strong>47</strong><span>/100 health score</span></div></div>
+    <div><p class="muted">This one-page view highlights the SEO risks most likely to affect traffic, rankings, and client-visible momentum.</p>
+      <div class="metric-grid"><div class="metric"><span class="muted">Total URLs</span><b>456</b></div>
+      <div class="metric"><span class="muted">Total issues</span><b>11</b></div>
+      <div class="metric"><span class="muted">Severity mix</span><b>2 / 5 / 4</b><span class="muted">High / Medium / Low</span></div></div>
+      <div class="callout" style="margin-top:14px"><strong>Estimated traffic loss</strong><p class="muted">18-28% of organic landing page opportunity may be at risk across 18 high-severity URL(s).</p></div>
+      <div class="callout"><strong>Previous Audit</strong><p class="muted">Last audit: 47/100 → This audit: 47/100 (+0 points)</p></div></div></div>
   </section>
 
-  <section class="mb-8">
-    <div class="mb-4 flex items-center justify-between">
-      <h2 class="text-xl font-bold text-slate-950">Top 3 Fixes</h2>
-      <p class="text-sm text-slate-500">Prioritized by severity and affected URLs</p>
-    </div>
-    <div class="grid gap-4 md:grid-cols-3"><div class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-          <div class="mb-2 flex items-center justify-between gap-3">
-            <h3 class="text-base font-semibold text-slate-950">duplicate title</h3>
-            <span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-red-100 text-red-700 ring-red-200">High</span>
-          </div>
-          <p class="text-sm text-slate-600">Duplicate titles blur page intent, making it harder for search engines to rank the right URL.</p>
-          <p class="mt-3 text-sm font-medium text-slate-900">12 affected URL(s)</p>
-        </div><div class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-          <div class="mb-2 flex items-center justify-between gap-3">
-            <h3 class="text-base font-semibold text-slate-950">broken link</h3>
-            <span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-red-100 text-red-700 ring-red-200">High</span>
-          </div>
-          <p class="text-sm text-slate-600">Broken URLs waste crawl budget, frustrate visitors, and leak conversion opportunities.</p>
-          <p class="mt-3 text-sm font-medium text-slate-900">6 affected URL(s)</p>
-        </div><div class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-          <div class="mb-2 flex items-center justify-between gap-3">
-            <h3 class="text-base font-semibold text-slate-950">missing image alt</h3>
-            <span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-amber-100 text-amber-800 ring-amber-200">Medium</span>
-          </div>
-          <p class="text-sm text-slate-600">Fixing this issue improves crawl clarity and visitor experience.</p>
-          <p class="mt-3 text-sm font-medium text-slate-900">279 affected URL(s)</p>
-        </div></div>
-  </section>
-
-  <section class="mb-8 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-    <div class="border-b border-slate-200 px-5 py-4">
-      <h2 class="text-xl font-bold text-slate-950">Issues</h2>
-    </div>
-    <div class="overflow-x-auto">
-      <table class="min-w-full text-left text-sm">
-        <thead class="bg-slate-100 text-xs uppercase tracking-wide text-slate-500">
-          <tr><th class="px-4 py-3">Severity</th><th class="px-4 py-3">Issue</th><th class="px-4 py-3">URLs</th><th class="px-4 py-3">Explanation</th></tr>
-        </thead>
-        <tbody><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-red-100 text-red-700 ring-red-200">High</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">duplicate title</td>
-          <td class="px-4 py-3 text-slate-700">12</td>
-          <td class="px-4 py-3 text-slate-600">12 URLs affected by duplicate title.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-red-100 text-red-700 ring-red-200">High</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">broken link</td>
-          <td class="px-4 py-3 text-slate-700">6</td>
-          <td class="px-4 py-3 text-slate-600">6 URLs affected by broken link.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-amber-100 text-amber-800 ring-amber-200">Medium</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">missing image alt</td>
-          <td class="px-4 py-3 text-slate-700">279</td>
-          <td class="px-4 py-3 text-slate-600">279 URLs affected by missing image alt.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-amber-100 text-amber-800 ring-amber-200">Medium</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">title too long</td>
-          <td class="px-4 py-3 text-slate-700">63</td>
-          <td class="px-4 py-3 text-slate-600">63 URLs affected by title too long.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-amber-100 text-amber-800 ring-amber-200">Medium</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">duplicate meta description</td>
-          <td class="px-4 py-3 text-slate-700">16</td>
-          <td class="px-4 py-3 text-slate-600">16 URLs affected by duplicate meta description.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-amber-100 text-amber-800 ring-amber-200">Medium</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">non indexable but linked</td>
-          <td class="px-4 py-3 text-slate-700">10</td>
-          <td class="px-4 py-3 text-slate-600">10 URLs affected by non indexable but linked.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-amber-100 text-amber-800 ring-amber-200">Medium</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">redirect</td>
-          <td class="px-4 py-3 text-slate-700">7</td>
-          <td class="px-4 py-3 text-slate-600">7 URLs affected by redirect.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-amber-100 text-amber-800 ring-amber-200">Medium</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">missing h1</td>
-          <td class="px-4 py-3 text-slate-700">2</td>
-          <td class="px-4 py-3 text-slate-600">2 URLs affected by missing h1.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-gray-100 text-gray-700 ring-gray-200">Low</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">slow page</td>
-          <td class="px-4 py-3 text-slate-700">152</td>
-          <td class="px-4 py-3 text-slate-600">152 URLs affected by slow page.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-gray-100 text-gray-700 ring-gray-200">Low</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">meta description too long</td>
-          <td class="px-4 py-3 text-slate-700">42</td>
-          <td class="px-4 py-3 text-slate-600">42 URLs affected by meta description too long.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-gray-100 text-gray-700 ring-gray-200">Low</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">title too short</td>
-          <td class="px-4 py-3 text-slate-700">21</td>
-          <td class="px-4 py-3 text-slate-600">21 URLs affected by title too short.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-gray-100 text-gray-700 ring-gray-200">Low</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">duplicate h1</td>
-          <td class="px-4 py-3 text-slate-700">19</td>
-          <td class="px-4 py-3 text-slate-600">19 URLs affected by duplicate h1.</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="px-4 py-3"><span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 bg-gray-100 text-gray-700 ring-gray-200">Low</span></td>
-          <td class="px-4 py-3 font-medium text-slate-900">thin content</td>
-          <td class="px-4 py-3 text-slate-700">10</td>
-          <td class="px-4 py-3 text-slate-600">10 URLs affected by thin content.</td>
-        </tr></tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="mb-8 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-    <div class="border-b border-slate-200 px-5 py-4">
-      <h2 class="text-xl font-bold text-slate-950">Redirect Map</h2>
-      <p class="mt-1 text-sm text-slate-500">6 recommended redirect(s)</p>
-    </div>
-    <div class="overflow-x-auto">
-      <table class="min-w-full text-left text-sm">
-        <thead class="bg-slate-100 text-xs uppercase tracking-wide text-slate-500">
-          <tr><th class="px-4 py-3">From</th><th class="px-4 py-3">To</th><th class="px-4 py-3">Reason</th></tr>
-        </thead>
-        <tbody><tr class="border-b border-slate-100">
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/edtech.png.png?width=101&amp;height=100&amp;name=edtech.png.png</td>
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/edtech.jpg?width=600&amp;height=400&amp;name=edtech.jpg</td>
-          <td class="px-4 py-3 text-slate-600">404 mapped to closest live URL</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/glob.png.png?width=101&amp;height=100&amp;name=glob.png.png</td>
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/clutch-global.png.png?width=161&amp;height=138&amp;name=clutch-global.png.png</td>
-          <td class="px-4 py-3 text-slate-600">404 mapped to closest live URL</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/B-W_icon.png.png?width=101&amp;height=100&amp;name=B-W_icon.png.png</td>
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/c-icon6.png?width=61&amp;height=61&amp;name=c-icon6.png</td>
-          <td class="px-4 py-3 text-slate-600">404 mapped to closest live URL</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/fintech.png.png?width=101&amp;height=100&amp;name=fintech.png.png</td>
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/fintech.jpg?width=600&amp;height=400&amp;name=fintech.jpg</td>
-          <td class="px-4 py-3 text-slate-600">404 mapped to closest live URL</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/fintechgrey.png?width=122&amp;height=80&amp;name=fintechgrey.png</td>
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/fintech.jpg?width=600&amp;height=400&amp;name=fintech.jpg</td>
-          <td class="px-4 py-3 text-slate-600">404 mapped to closest live URL</td>
-        </tr><tr class="border-b border-slate-100">
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/healthgrey.png?width=105&amp;height=90&amp;name=healthgrey.png</td>
-          <td class="max-w-[320px] truncate px-4 py-3 text-slate-700">https://nmgtechnologies.com/hs-fs/hubfs/healthcare.jpg?width=600&amp;height=400&amp;name=healthcare.jpg</td>
-          <td class="px-4 py-3 text-slate-600">404 mapped to closest live URL</td>
-        </tr></tbody>
-      </table>
-    </div>
-  </section>
-
-  <footer class="border-t border-slate-200 pt-5 text-sm text-slate-500">
-    Generated by SEO Command Center · Model qwen3.5:9b
-  </footer>
+  <section class="section"><h2>3 Most Critical Issues</h2><div class="cards"><article class="card"><span class="badge sev-high">High</span>
+        <h3>duplicate title</h3><p class="muted">Duplicate titles blur page intent, making it harder for search engines to rank the right URL.</p>
+        <p style="margin-top:10px"><strong>12</strong> affected URL(s)</p></article><article class="card"><span class="badge sev-high">High</span>
+        <h3>broken link</h3><p class="muted">Broken URLs waste crawl budget, frustrate visitors, and leak conversion opportunities.</p>
+        <p style="margin-top:10px"><strong>6</strong> affected URL(s)</p></article><article class="card"><span class="badge sev-medium">Medium</span>
+        <h3>title too long</h3><p class="muted">Long titles are likely truncated, hiding important value propositions in search results.</p>
+        <p style="margin-top:10px"><strong>63</strong> affected URL(s)</p></article></div></section>
+  <section class="section"><h2>Fix These 3 Things First</h2><ol class="priority-list"><li>Fix duplicate title on 12 URL(s): Duplicate titles blur page intent, making it harder for search engines to rank the right URL.</li><li>Fix broken link on 6 URL(s): Broken URLs waste crawl budget, frustrate visitors, and leak conversion opportunities.</li><li>Fix title too long on 63 URL(s): Long titles are likely truncated, hiding important value propositions in search results.</li></ol></section>
+  
+  <section class="section"><h2>Scoring Breakdown</h2><p class="muted" style="margin-bottom:12px">Score: 47/100</p>
+    <table><thead><tr><th>Deduction</th><th>Severity</th><th>Issue</th><th>Reason</th></tr></thead><tbody><tr><td>-10 pts</td><td>High</td>
+        <td>duplicate title</td><td>duplicate titles affecting 12 pages reduce SERP clarity and CTR</td></tr><tr><td>-10 pts</td><td>High</td>
+        <td>broken link</td><td>broken links affecting 6 URLs waste crawl budget and user trust</td></tr><tr><td>-5 pts</td><td>Medium</td>
+        <td>title too long</td><td>titles too long affecting 63 pages may be truncated in search results</td></tr><tr><td>-5 pts</td><td>Medium</td>
+        <td>duplicate meta description</td><td>duplicate meta description affecting 16 URL(s) needs review</td></tr><tr><td>-5 pts</td><td>Medium</td>
+        <td>missing h1</td><td>missing h1 affecting 2 URL(s) needs review</td></tr><tr><td>-5 pts</td><td>Medium</td>
+        <td>redirect</td><td>redirect affecting 7 URL(s) needs review</td></tr><tr><td>-5 pts</td><td>Medium</td>
+        <td>non indexable but linked</td><td>non indexable but linked affecting 2 URL(s) needs review</td></tr><tr><td>-2 pts</td><td>Low</td>
+        <td>title too short</td><td>title too short affecting 21 URL(s) needs review</td></tr><tr><td>-2 pts</td><td>Low</td>
+        <td>meta description too long</td><td>meta description too long affecting 42 URL(s) needs review</td></tr><tr><td>-2 pts</td><td>Low</td>
+        <td>duplicate h1</td><td>duplicate h1 affecting 19 URL(s) needs review</td></tr><tr><td>-2 pts</td><td>Low</td>
+        <td>thin content</td><td>thin content affecting 10 URL(s) needs review</td></tr></tbody></table></section>
+  <section class="section"><h2>Issues</h2><table><thead><tr><th>Severity</th><th>Issue</th><th>URLs</th><th>Explanation</th></tr></thead><tbody><tr><td><span class="badge sev-high">High</span></td>
+        <td><strong>duplicate title</strong></td>
+        <td>12</td><td>12 URLs affected by duplicate title.</td></tr><tr><td><span class="badge sev-high">High</span></td>
+        <td><strong>broken link</strong></td>
+        <td>6</td><td>6 URLs affected by broken link.</td></tr><tr><td><span class="badge sev-medium">Medium</span></td>
+        <td><strong>title too long</strong></td>
+        <td>63</td><td>63 URLs affected by title too long.</td></tr><tr><td><span class="badge sev-medium">Medium</span></td>
+        <td><strong>duplicate meta description</strong></td>
+        <td>16</td><td>16 URLs affected by duplicate meta description.</td></tr><tr><td><span class="badge sev-medium">Medium</span></td>
+        <td><strong>redirect</strong></td>
+        <td>7</td><td>7 URLs affected by redirect.</td></tr><tr><td><span class="badge sev-medium">Medium</span></td>
+        <td><strong>missing h1</strong></td>
+        <td>2</td><td>2 URLs affected by missing h1.</td></tr><tr><td><span class="badge sev-medium">Medium</span></td>
+        <td><strong>non indexable but linked</strong></td>
+        <td>2</td><td>2 URLs affected by non indexable but linked.</td></tr><tr><td><span class="badge sev-low">Low</span></td>
+        <td><strong>meta description too long</strong></td>
+        <td>42</td><td>42 URLs affected by meta description too long.</td></tr><tr><td><span class="badge sev-low">Low</span></td>
+        <td><strong>title too short</strong></td>
+        <td>21</td><td>21 URLs affected by title too short.</td></tr><tr><td><span class="badge sev-low">Low</span></td>
+        <td><strong>duplicate h1</strong></td>
+        <td>19</td><td>19 URLs affected by duplicate h1.</td></tr><tr><td><span class="badge sev-low">Low</span></td>
+        <td><strong>thin content</strong></td>
+        <td>10</td><td>10 URLs affected by thin content.</td></tr></tbody></table></section>
+  <section class="section"><h2>Title Fixes</h2><table><thead><tr><th>URL</th><th>Old title</th><th>Recommended title</th></tr></thead><tbody><tr><td class="url">https://nmgtechnologies.com/</td><td>IT Outsource Software, Web &amp; Mobile App Development Company - NMG</td><td>Transforming Businesses with AI-Driven Innovation</td></tr><tr><td class="url">https://nmgtechnologies.com/industry/fintech</td><td>IT Outsource Software, Web &amp; Mobile App Development Company - NMG</td><td>Fintech Overview | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/industry/travel</td><td>IT Outsource Software, Web &amp; Mobile App Development Company - NMG</td><td>Travel Overview | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/industry/marketresearch</td><td>IT Outsource Software, Web &amp; Mobile App Development Company - NMG</td><td>Market Research | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/industry/healthcare</td><td>IT Outsource Software, Web &amp; Mobile App Development Company - NMG</td><td>Healthcare Overview | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/industry/staffing</td><td>IT Outsource Software, Web &amp; Mobile App Development Company - NMG</td><td>Staffing Overview | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/success-stories</td><td>Case Studies - Successful Case Studies of Client | NMG Technologies</td><td>Success Stories | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/success-stories/competiscan</td><td>IT Outsource Software, Web &amp; Mobile App Development Company - NMG</td><td>Elevating Industry Standards with Competiscan: A Benchmark</td></tr><tr><td class="url">https://nmgtechnologies.com/clients/case-studies/</td><td>Case Studies - Successful Case Studies of Client | NMG Technologies</td><td>Success Stories | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/success-stories/compound-banc</td><td>IT Outsource Software, Web &amp; Mobile App Development Company - NMG</td><td>Crafting Digital Excellence for IT Leaders – Explore Our</td></tr><tr><td class="url">https://nmgtechnologies.com/success-stories/international-insurance</td><td>IT Outsource Software, Web &amp; Mobile App Development Company - NMG</td><td>Global Coverage, Local Care – International Insurance.com</td></tr><tr><td class="url">https://nmgtechnologies.com/success-stories/wealth-concert</td><td>IT Outsource Software, Web &amp; Mobile App Development Company - NMG</td><td>Wealth Concert: Orchestrating Your Financial Symphony</td></tr><tr><td class="url">https://nmgtechnologies.com/solution/portals/</td><td>Web Portal Development Services - Ecommerce Portal Apps for Business</td><td>Web Portal Development | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/company/about-us</td><td>About NMG Technologies - Software, Web &amp; Mobile App Development Company</td><td>NMG: Your Global Digital Solutions Partner</td></tr><tr><td class="url">https://nmgtechnologies.com/resources/library/</td><td>Most Resourceful Content for Businesses to Get Started | NMG Technologies</td><td>NMG Library | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/blog/nmg-technologies-to-participate-in-mobile-word-capital-barcelona-the-worlds-largest-and-most-influential-connectivity-event</td><td>NMG Technologies to Participate in Mobile Word Capital Barcelona – the world’s largest and most influential connectivity event</td><td>NMG Technologies to Participate in Mobile Word Capital</td></tr><tr><td class="url">https://nmgtechnologies.com/solution/fintech/</td><td>Fintech Apps &amp; Software Development Services - Hire Fintech Developers</td><td>Fintech Software Development Company | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/ai-driven-enterprise-software-development</td><td>Enterprise AI Solutions | AI Software and Development Company</td><td>AI-Driven Enterprise Software Development | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/solution/artificial-intelligence/</td><td>AI Software Development - #1 Artificial Intelligence Development Company</td><td>AI Development | NMG Technologies</td></tr><tr><td class="url">https://nmgtechnologies.com/solution/cloud-apps/</td><td>Cloud Application Development Services - Cloud App Migration Company</td><td>Expert Cloud Application Development Services</td></tr></tbody></table></section>
+  <section class="section"><h2>Redirect Map</h2><table><thead><tr><th>From</th><th>To</th><th>Reason</th></tr></thead><tbody><tr><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/edtech.png.png?width=101&amp;height=100&amp;name=edtech.png.png</td><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/edtech.jpg?width=600&amp;height=400&amp;name=edtech.jpg</td><td>404 mapped to closest live URL</td></tr><tr><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/glob.png.png?width=101&amp;height=100&amp;name=glob.png.png</td><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/clutch-global.png.png?width=161&amp;height=138&amp;name=clutch-global.png.png</td><td>404 mapped to closest live URL</td></tr><tr><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/B-W_icon.png.png?width=101&amp;height=100&amp;name=B-W_icon.png.png</td><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/c-icon6.png?width=61&amp;height=61&amp;name=c-icon6.png</td><td>404 mapped to closest live URL</td></tr><tr><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/fintech.png.png?width=101&amp;height=100&amp;name=fintech.png.png</td><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/fintech.jpg?width=600&amp;height=400&amp;name=fintech.jpg</td><td>404 mapped to closest live URL</td></tr><tr><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/fintechgrey.png?width=122&amp;height=80&amp;name=fintechgrey.png</td><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/fintech.jpg?width=600&amp;height=400&amp;name=fintech.jpg</td><td>404 mapped to closest live URL</td></tr><tr><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/healthgrey.png?width=105&amp;height=90&amp;name=healthgrey.png</td><td class="url">https://nmgtechnologies.com/hs-fs/hubfs/healthcare.jpg?width=600&amp;height=400&amp;name=healthcare.jpg</td><td>404 mapped to closest live URL</td></tr></tbody></table></section>
+  <footer>Generated by SEO Command Center · Model qwen3.5:9b</footer>
 </main></body></html>
