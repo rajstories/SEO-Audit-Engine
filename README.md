@@ -1,36 +1,23 @@
 <div align="center">
 
-```
-███████╗███████╗ ██████╗      ██████╗██╗  ██╗██████╗
-██╔════╝██╔════╝██╔═══██╗    ██╔════╝██║ ██╔╝██╔══██╗
-███████╗█████╗  ██║   ██║    ██║     █████╔╝ ██║  ██║
-╚════██║██╔══╝  ██║   ██║    ██║     ██╔═██╗ ██║  ██║
-███████║███████╗╚██████╔╝    ╚██████╗██║  ██╗██████╔╝
-╚══════╝╚══════╝ ╚═════╝      ╚═════╝╚═╝  ╚═╝╚═════╝
-```
+<img src="https://capsule-render.vercel.app/api?type=venom&height=220&text=SEO%20Command%20Center&fontSize=62&color=0:020617,50:052e16,100:020617&fontColor=f0fdf4&stroke=22c55e&strokeWidth=3&animation=fadeIn&fontAlignY=50&desc=Autonomous%20Audit%20Engine%20%E2%80%A2%20Local%20AI%20%E2%80%A2%20Zero%20Cloud%20Dependencies&descSize=17&descAlignY=72&descFontColor=4ade80" width="100%"/>
 
-# SEO Command Center
-
-**Autonomous SEO Audit Engine · Offline · Local AI · Client-Ready Reports**
-
-*Feed it any Screaming Frog export. In under 60 seconds it finds every SEO issue,*
-*scores them by business impact, rewrites broken titles, maps 404 redirects,*
-*and ships a client-ready report — entirely offline on a free local AI model.*
-
----
+<br/>
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![pandas](https://img.shields.io/badge/pandas-Detection%20Engine-150458?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org)
 [![Ollama](https://img.shields.io/badge/Ollama-Local%20AI-000000?style=flat-square&logo=ollama&logoColor=white)](https://ollama.ai)
-[![Offline](https://img.shields.io/badge/Runs-100%25%20Offline-22c55e?style=flat-square&logo=shield&logoColor=white)](.)
-[![License](https://img.shields.io/badge/License-MIT-f59e0b?style=flat-square)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-8b5cf6?style=flat-square)](.)
+[![Offline](https://img.shields.io/badge/Runs-100%25%20Offline-22c55e?style=flat-square)](.)
+[![Speed](https://img.shields.io/badge/Audit%20Speed-Under%2060s-f59e0b?style=flat-square)](.)
+[![Rules](https://img.shields.io/badge/SEO%20Rules-17%20Detectors-8b5cf6?style=flat-square)](.)
 
-[**Live Demo**](#-live-audit-nmgtechnologiescom) · [**Architecture**](#-architecture) · [**Quick Start**](#-quick-start) · [**Lessons Learned**](#-engineering-lessons)
+<br/>
+
+[**Live Demo**](#-live-audit-nmgtechnologiescom) · [**How It Works**](#-how-it-works) · [**Architecture**](#-architecture) · [**Quick Start**](#-quick-start) · [**Lessons Learned**](#-engineering-lessons)
+
+<br/>
 
 </div>
-
----
 
 ## ✦ What This Is
 
