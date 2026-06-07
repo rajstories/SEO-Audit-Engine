@@ -20,7 +20,6 @@ DETECTOR_CHECKS = [
     'duplicate_h1',
     'thin_content',
     'slow_page',
-    'missing_image_alt',
 ]
 
 
@@ -105,7 +104,8 @@ def detect_all(df, progress=None):
 
     _run_check(issues, progress, 'non_indexable_but_linked', 'Medium',
                df[(_str(df, 'Indexability') == 'Non-Indexable') &
-                  (_num(df, 'Inlinks') > 0)])
+                  (_num(df, 'Inlinks') > 0) &
+                  (_num(df, 'Status Code') == 200)])
 
     # LOW severity
     _run_check(issues, progress, 'title_too_short', 'Low',
@@ -121,11 +121,7 @@ def detect_all(df, progress=None):
                idx[_num(idx, 'Word Count') < 200])
 
     _run_check(issues, progress, 'slow_page', 'Low',
-               df[_num(df, 'Response Time') > 1.0])
-
-    _run_check(issues, progress, 'missing_image_alt', 'Medium',
-               df[(_str(df, 'Content Type').str.contains('image', case=False, na=False)) &
-                  (_str(df, 'Alt Text') == '')])
+               df[_num(df, 'Response Time') > 3.0])
 
     return issues
 
