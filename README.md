@@ -1,69 +1,90 @@
-# SEO Command Center — Forge Sprint 01 starter
+# SEO Command Center
 
-A Claude Code **plugin** that ingests a **Screaming Frog SEO export**, audits it against
-the rulebook, prioritizes the issues, writes fixes, and renders a **live dashboard** plus
-an exportable client report. The plumbing works out of the box — you implement the SEO
-logic and push accuracy on the hidden export.
+Production-oriented SEO audit runner for Screaming Frog CSV exports. It uses pandas-only detection for crawl issues, optional Ollama calls for title recommendations, and exports client-ready HTML reports with history and competitor comparisons.
 
-## Quick start (headless, proves it runs)
+## Requirements
+
 ```bash
-pip install mcp          # exposes MCP tools to Claude Code (dashboard works without it too)
-python run.py sample-export/
-# open the live cockpit:
-#   http://localhost:7700
-# outputs land in outputs/report.json and outputs/report.html
+pip install pandas
 ```
 
-## Inside Claude Code
-```
-/seo-audit sample-export/
-```
+PDF export uses WeasyPrint:
 
-## What's here
-```
-seo-command-center/
-├── .claude-plugin/plugin.json   plugin manifest (skill + command + agents + MCP)
-├── .claude/                     audit hooks (settings.json + hooks/audit.sh) → records your process
-├── skills/seo-audit/SKILL.md    orchestrator
-├── agents/                      ingest, auditor, fixer, reporter (sub-agents)
-├── commands/seo-audit.md        the /seo-audit command
-├── mcp/server.py                local MCP server + live dashboard host (localhost:7700)
-├── seo/detector.py              deterministic issue detection  ← EXTEND THIS to the full rulebook
-├── dashboard/                   index.html + app.js (the cockpit)
-├── scripts/export-transcript.sh saves your session transcript to agent-log.md (commit it)
-├── run.py                       headless runner (the grader's entry point)
-└── outputs/                     report.json + report.html (generated)
+```bash
+pip install weasyprint
 ```
 
-## Your job in the Sprint
-1. **Complete `seo/detector.py`** to cover the full `rulebook.md` (the starter only does a
-   few issue types). Accuracy on the hidden export is the biggest part of your score.
-2. **Implement the fixer** (titles/meta rewrites within limits + a redirect map) for the
-   champion tier — see `agents/fixer.md`.
-3. **Improve the dashboard / report** to be genuinely client-ready.
-4. **Commit incrementally** (≥10 commits) and let the audit hooks record your process.
+WeasyPrint also needs its native system libraries. If those are missing, `--pdf` will warn and the audit will still complete with HTML and JSON outputs.
 
-## Process + memory files you must maintain (graded — see challenge brief section 08)
-These are how the judges assess *how you worked with the AI*, not just the result:
-- `.claude/audit.jsonl` — auto-written by the hooks (every tool call). Commit it. Keep
-  `.claude/settings.json` in place so the hooks keep recording.
-- `agent-log.md` — run `bash scripts/export-transcript.sh` at the end to export your session
-  transcript. Commit it.
-- `CLAUDE.md` — your project memory / instructions for the agent. **Edit this as you build** —
-  good context engineering is the clearest signal of good practice.
-- `PROMPTS.md` — log your key prompts (the ones that moved the build).
-- `DECISIONS.md` — log your real decisions and what you learned / fixed.
+## Usage
 
-The three records (audit log, transcript, git history) must agree — that is how a real process
-is told apart from a fabricated one. Do not edit or fake the logs.
+Run commands from this folder or from any other directory. Output paths are absolute inside `seo-command-center/outputs`.
 
-## The model
-Run on the free local stack (Claude Code + Ollama). Set `OLLAMA_CONTEXT_LENGTH=65536`,
-use a tool-trained model (`qwen3.5:9b` or `gemma4:31b-cloud`), not `qwen2.5-coder`.
+### Basic audit
 
-## Note
-The dashboard renders the operator's own crawl data on localhost; it is a local cockpit,
-not a hardened public server. The shareable artifact is the exported `report.html`.
+```bash
+python3 run.py export/ --site-name "Client Site"
+```
 
-## Running the audit
-python3 run.py sample-export/ --no-dashboard
+Writes:
+
+- `outputs/report.json`
+- `outputs/report.html`
+- `outputs/fixes.csv`
+- `outputs/redirect_map.csv`
+- `history/clientsite_YYYY-MM-DD.json`
+
+### Competitor comparison
+
+```bash
+python3 run.py client-export/ competitor-export/ --site-name "Client Site"
+```
+
+Adds a **Competitive Gap** section showing issues the client has that the competitor does not, plus areas where the competitor has fewer affected URLs.
+
+### PDF report
+
+```bash
+python3 run.py export/ --site-name "Client Site" --pdf
+```
+
+Writes `outputs/report.pdf` when WeasyPrint and its native dependencies are available.
+
+### Offline mode
+
+```bash
+python3 run.py export/ --site-name "Client Site" --no-ollama
+```
+
+Skips Ollama entirely and uses deterministic fallback title suggestions from URL slug, H1, and site name.
+
+## What the Audit Checks
+
+- Missing, duplicate, too-long, and too-short titles
+- Missing and duplicate meta descriptions
+- Broken links and server errors
+- Redirects and redirect chains
+- Missing and duplicate H1s
+- Orphan pages
+- Non-indexable 200 URLs that still receive internal links
+- Thin content
+- Slow pages over 3 seconds
+
+Image alt detection is intentionally excluded because Screaming Frog CSV rows made it too noisy for reliable client reporting.
+
+## Scoring
+
+The report includes an explicit scoring breakdown:
+
+- High severity issue types deduct 10 points each
+- Medium severity issue types deduct 5 points each
+- Low severity issue types deduct 2 points each
+
+Each deduction includes the affected URL count and a business reason so the score is easy to defend in client conversations.
+
+## Notes
+
+- Detection stays pure pandas. CSV data is never sent to an LLM.
+- Ollama is used only for title generation and has a 30 second timeout.
+- Missing or slow Ollama never stops the audit.
+- `--site-name` is used in title recommendations and report branding.
